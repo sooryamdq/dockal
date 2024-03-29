@@ -1,0 +1,112 @@
+/* Default styles */
+/* Calendar container */
+.calendar-container {
+    width: 350px;
+    height:100%;
+    max-width: 100%;
+    font-size: 10px;
+  }
+  
+  /* Calendar header */
+  .calendar-header {
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  /* Calendar days */
+  .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+  }
+  
+  /* Calendar day */
+  .calendar-day {
+    text-align: center;
+    border: 1px solid #eee;
+    cursor: pointer;
+    font-size: 10px;
+  }
+  
+  /* Selected day */
+  .calendar-day--selected {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+ 
+  
+  
+
+
+
+
+.calendar-container {
+    
+    margin: 0 auto;
+  }
+  
+  .calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .calendar-header {
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  
+  
+  .calendar-container .react-calendar {
+    background-color: transparent;
+    border: none;
+    color: white;
+  
+  }
+  
+ 
+ 
+  
+  /* Customize hover effect */
+  .custom-calendar .react-calendar__tile:hover {
+    background-color: #00605D;
+    cursor: pointer;
+  
+  }
+  
+  /* Customize selected date color */
+  .custom-calendar .react-calendar__tile--active {
+    background-color: #00605D;
+    /* Change background color of selected date */
+    color: white;
+    /* Change text color of selected date */
+  }
+  
+  /* Customize the size of each date */
+  .custom-calendar .react-calendar__tile {
+    font-size: 10px;
+  }
+  
+  /* Optionally, customize the size of the weekday header */
+  .custom-calendar .react-calendar__month-view__weekdays__weekday abbr {
+    font-size: 10px;
+    border-bottom: none;
+    /* Adjust the font size of the weekday header */
+  }
+  
+  /* Customize today's date color */
+  .custom-calendar .react-calendar__tile--now {
+    background-color: #00605D;
+    color: white;
+    border-radius: 50%;
+    /* Change background color of today's date */
+  }
+  
+  /* Customize tile content color */
+  .custom-calendar .react-calendar__tile--hasActive:hover {
+    background-color: #00605D;
+    color: white;
+   
+  }

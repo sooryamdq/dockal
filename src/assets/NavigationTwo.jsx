@@ -1,0 +1,18 @@
+
+const NavigationTwo = ()=>{
+    return(
+        <svg width="44" height="43" viewBox="0 0 44 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2.28223" y="2.07715" width="38.359" height="37.4872" rx="15" fill="url(#paint0_linear_121_905)"/>
+<path d="M28.7334 14.6142L14.8193 28.5283M28.7334 14.6142L27.4259 25.2332M28.7334 14.6142L18.1145 15.9217" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="paint0_linear_121_905" x1="-4.6006" y1="-10.6315" x2="56.5461" y2="-10.1734" gradientUnits="userSpaceOnUse">
+<stop stop-color="#008080"/>
+<stop offset="0.988903" stop-color="#40E0D0"/>
+</linearGradient>
+</defs>
+</svg>
+
+    )
+}
+
+export default NavigationTwo
