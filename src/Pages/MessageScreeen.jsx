@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ExploreNavbar from "../Components/ExploreNavbar";
 import Menubar from "../assets/Menubar";
 import MuteIcon from "../assets/MuteIcon";
 import PinIcon from "../assets/PinIcon";
@@ -153,7 +152,7 @@ const MessageScreen = () => {
 
   return (
     <>
-      <ExploreNavbar />
+     
       {/**Desktop View */}
       <div className="w-full px-8 flex">
         <div className="w-[30%]  md:block hidden border">

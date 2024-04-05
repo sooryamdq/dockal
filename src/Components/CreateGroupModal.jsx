@@ -1,11 +1,11 @@
 
 import { useState } from 'react';
 import Modal from 'react-modal';
-import SubGroup from './../Pages/SubGroup';
+
 
 const CreateGroupModal = ({isOpen,onRequestClose,groupName,studentGroups,setGroupName,handleCreateGroup,subgroupName,setSubgroupName,handleCreateSubgroup})=>{
  
-    const [view,setView] = useState(false)
+   const [view,setView] = useState(false)
 
 
    const handleSubGroup = ()=>{

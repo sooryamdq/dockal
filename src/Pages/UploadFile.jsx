@@ -1,4 +1,4 @@
-import ExploreNavbar from "../Components/ExploreNavbar";
+
 import PlusIcon from "../assets/PlusIcon";
 import { useNavigate } from "react-router-dom";
 
@@ -309,7 +309,7 @@ const Upload = () => {
   };
   return (
     <>
-      <ExploreNavbar />
+    
       <div className="w-full flex flex-col justify-center items-center">
         <div className="flex gap-4 w-[80%] items-center">
           <div className="w-full border flex justify-between items-center py-2 px-4">

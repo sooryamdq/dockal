@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import FilterModal from "./FilterModal";
 import SaveIcon from "../assets/SaveIcon";
 import LinkedInIcon from "../assets/LinkedInIcon";
 import WhatsappIcon from "../assets/WhatsappIcon";
 import EmailIcon from "../assets/EmailIcon";
+import FilterModal from './FilterModal';
 
 Modal.setAppElement("#root");
 
@@ -130,8 +130,8 @@ const ShareModal = ({ isOpen, onRequestClose }) => {
   return (
     <>
     <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
+     isOpen={isOpen}
+     onRequestClose={onRequestClose}
       contentLabel="Small Modal"
       style={{
         overlay: {
@@ -381,16 +381,22 @@ const ShareModal = ({ isOpen, onRequestClose }) => {
                         {
         sharePopup &&  <div className="w-14 h-40 bg-white absolute top-16 flex flex-col justify-center items-center gap-2 rounded-md right-0 z-50">
         <div>
+          <a href="">
           <SaveIcon/>
+          </a>
         </div>
        <div>
+       <a href="whatsapp://send?text=Check%20out%20this%20page:%20http://example.com">
        <WhatsappIcon/>
+       </a>
        </div>
         <div>
          <EmailIcon/>
         </div>
         <div>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=http://example.com">
          <LinkedInIcon/>
+         </a>
         </div>
        </div>
       }

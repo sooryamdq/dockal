@@ -79,7 +79,7 @@ const Login = () => {
 
   return (
     <div className="w-full h-96">
-      <Navbar />
+     
       <div className="w-full h-96 flex flex-col justify-center items-center">
         <p className="font-medium font-base py-5 text-[#2F2F2F]">
           Welcome to Certiverse{" "}

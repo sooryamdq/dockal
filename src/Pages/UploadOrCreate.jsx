@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import ExploreNavbar from "../Components/ExploreNavbar";
 import PlusIcon from "../assets/PlusIcon";
 
 const UploadOrCreate = () => {
   return (
     <>
-      <ExploreNavbar />
+      
       <div className="w-full flex flex-col justify-center items-center">
         <div className="flex gap-4 w-[80%] items-center">
           <div className="w-full border flex justify-between items-center py-2 px-4">

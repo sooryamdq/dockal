@@ -2,6 +2,7 @@ import QRCode from "qrcode.react";
 import { Link } from "react-router-dom";
 import Menubar from "../assets/Menubar";
 import DeleteIcon from "../assets/DeleteIcon";
+import PlusIcon from "../assets/PlusIcon";
 
 const EditCertificates = ({
   editOpen,
@@ -89,7 +90,7 @@ const EditCertificates = ({
             </p>
           </div>
 
-          <div className="flex justify-between mt-10">
+          <div className="flex justify-between lg:mt-10 mt-4">
             <div></div>
             <div>
               <div>
@@ -102,7 +103,7 @@ const EditCertificates = ({
                   type="file"
                   className="font-normal absolute inset-0 w-full h-full opacity-0"
                 />
-                <p className="absolute mt-4 -left-16 inset-0 w-full font-medium lg:text-sm text-xs h-full text-black text-center whitespace-nowrap">
+                <p className="absolute lg:mt-4 mt-2  lg:-left-16 -left-12 inset-0 w-full font-medium lg:text-sm text-xs h-full text-black text-center whitespace-nowrap">
                   Upload signature
                 </p>
               </div>

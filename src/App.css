@@ -20,11 +20,13 @@ body {
 }
 
 .bg-image {
-  background-image: url("../src/assets/bgbanner.png");
+  background:linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.4)),url("../src/assets/bgbanner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .bg-imagenew {
@@ -212,6 +214,11 @@ input[type="number"] {
     right: -30px;
 
   }
+}
+
+.navbaractive{
+  opacity: 0.5;
+  
 }
 
 @media (min-width: 320px) and (max-width: 900px) {

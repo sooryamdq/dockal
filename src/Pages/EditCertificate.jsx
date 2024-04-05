@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import ExploreNavbar from "../Components/ExploreNavbar";
 import QRCode from "qrcode.react";
 import DeleteIcon from "../assets/DeleteIcon";
 import Menubar from "../assets/Menubar";
@@ -93,7 +92,6 @@ const EditCertificate = ({ count, handleChange, setCount }) => {
   return (
     <>
       <div className="w-full h-auto" onClick={handleOverlayClick}>
-        <ExploreNavbar />
         <div className="flex flex-col lg:items-start items-center gap-5 lg:pl-20 pl-0">
           <p className="font-semibold text-sm py-2 ">
             Certificates /{" "}

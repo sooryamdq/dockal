@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import ExploreNavbar from "../Components/ExploreNavbar";
 import QRCode from "qrcode.react";
 import DeleteIcon from "../assets/DeleteIcon";
 import Menubar from "../assets/Menubar";

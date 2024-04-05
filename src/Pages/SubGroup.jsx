@@ -2,22 +2,13 @@ import ExploreNavbar from "../Components/ExploreNavbar";
 import Group from "../Components/Group";
 import { Link, useLocation } from "react-router-dom";
 import PlusIcon from "../assets/PlusIcon";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const SubGroup = () => {
-  const [storedStudentGroups, setStoredStudentGroups] = useState([]);
-
-  // Function to retrieve studentGroups data from local storage
-  const getStudentGroupsFromLocalStorage = () => {
-    const storedData = localStorage.getItem("studentGroups");
-    return storedData ? JSON.parse(storedData) : [];
-  };
-
-  useEffect(() => {
-    // Retrieve studentGroups data from local storage when component mounts
-    const groupsFromLocalStorage = getStudentGroupsFromLocalStorage();
-    setStoredStudentGroups(groupsFromLocalStorage);
-  }, []); // Empty dependency array to run the effect only once on mount
+  
+ 
+  const studentGroups = useSelector(state => state.studentGroups);
+  console.log("gp",studentGroups)
 
   return (
     <>
@@ -53,10 +44,14 @@ const SubGroup = () => {
           </div>
           <div className="flex flex-wrap gap-8 w-[80%] py-10">
             {
+              studentGroups.map((item)=>item.subgroups.map((item)=>
               <Link to="/uploadOrCreate">
-                <Group groupname={"MECH"} />
+                <Group groupname={item.name} key={item.id}/>
               </Link>
+              ))
             }
+              
+            
           </div>
         </div>
       </div>

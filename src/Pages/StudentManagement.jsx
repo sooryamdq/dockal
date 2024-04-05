@@ -1,67 +1,101 @@
 import { useState } from "react";
 import CreateGroupModal from "../Components/CreateGroupModal";
-import ExploreNavbar from "../Components/ExploreNavbar";
 import Group from "../Components/Group";
 import PlusIcon from "../assets/PlusIcon";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addGroup, addSubgroup } from "../Redux/StudentgropSlice";
+
+
 
 const StudentManagement = () => {
+
+  const dispatch = useDispatch();
   const [groupName, setGroupName] = useState("");
-  const [studentGroups, setStudentGroups] = useState([]);
   const [subgroupName, setSubgroupName] = useState("");
+  const studentGroups = useSelector(state => state.studentGroups);
+  console.log("gp",studentGroups)
+
 
   const handleCreateGroup = () => {
-    if (groupName.trim() !== "") {
+    if (groupName.trim() !== '') {
       const newGroup = {
-        id: studentGroups.length + 1,
+        id: Date.now(), // Use timestamp as ID
         name: groupName.trim(),
         subgroups: [],
       };
-      setStudentGroups([...studentGroups, newGroup]);
-      setGroupName(""); // Reset the input field
-    }
-    if (groupName) {
-      if (studentGroups.length > 0) {
-        handleCreateSubgroup(studentGroups.length);
-      }
+      dispatch(addGroup(newGroup));
+      setGroupName('');
+      handleCreateSubgroup(newGroup.id);
     }
   };
 
   const handleCreateSubgroup = (groupId) => {
-    if (subgroupName.trim() !== "") {
+    if (subgroupName.trim() !== '') {
       const newSubgroup = {
-        id: Date.now(),
+        id: Date.now(), // Use timestamp as ID
         name: subgroupName.trim(),
       };
-
-      const updatedGroups = [...studentGroups];
-
-      // Ensure that groupId is within the bounds of studentGroups array
-      if (groupId >= 1 && groupId <= updatedGroups.length) {
-        updatedGroups[groupId - 1].subgroups.push(newSubgroup);
-        setStudentGroups(updatedGroups);
-        setSubgroupName("");
-      } else {
-        console.error("Invalid groupId:", groupId);
-      }
+      dispatch(addSubgroup({ groupId, subgroup: newSubgroup }));
+      setSubgroupName('');
     }
   };
 
-  //   const handleCreateSubgroup = (groupId) => {
-  //     if (subgroupName.trim() !== '') {
-  //       const newSubgroup = {
-  //         id: setStudentGroups.length+1,
-  //         name: subgroupName.trim()
-  //       };
 
-  //       const updatedGroups = [...studentGroups];
-  //       updatedGroups[groupId - 1].subgroups.push(newSubgroup);
-  //       setStudentGroups(updatedGroups);
-  //       setSubgroupName('');
-  //     }
-  //   };
+  // const handleCreateGroup = () => {
+  //   // Check if the group name is not empty
+  //   if (groupName.trim() !== "") {
+  //     // Create a new group object with an ID, name, and an empty array for subgroups
+  //     const newGroup = {
+  //       id: studentGroups.length + 1,
+  //       name: groupName.trim(),
+  //       subgroups: [],
+  //     };
 
-  console.log(studentGroups.map((ele) => ele.subgroups.map((ele) => ele.name)));
+  //     // Update the list of student groups by adding the new group
+  //     setStudentGroups([...studentGroups, newGroup]);
+
+  //     // Reset the group name to clear the input field
+  //     setGroupName("");
+  //     handleCreateSubgroup(newGroup.id);
+  //   }
+  // };
+
+  // const handleCreateSubgroup = (groupId) => {
+  //   // Check if the subgroup name is not empty
+  //   if (subgroupName.trim() !== "") {
+  //     // Create a new subgroup object with a unique ID and name
+  //     const newSubgroup = {
+  //       id: Date.now(), // Use the current timestamp as the ID
+  //       name: subgroupName.trim(),
+  //     };
+
+  //     // Update the list of student groups by adding the new subgroup to the specified group
+  //     setStudentGroups((prevStudentGroups) => {
+  //       console.log("values",prevStudentGroups)
+  //       const updatedGroups =[...prevStudentGroups]; // Create a copy of the previous student groups
+  //       // Find the specified group by its ID and add the new subgroup to its subgroups array
+  //       const groupIndex = updatedGroups.findIndex(
+  //         (group) => group.id === groupId
+  //       );
+  //       console.log("index",groupIndex)
+  //       if (groupIndex !== -1) {
+  //         updatedGroups[groupIndex].subgroups.push(newSubgroup);
+
+  //       } else {
+  //         console.error("Invalid groupId:", groupId);
+  //       }
+  //       console.log("LI",updatedGroups)
+  //       return updatedGroups; // Return the updated list of student groups
+
+  //     });
+
+  //     // Reset the subgroup name to clear the input field
+  //     setSubgroupName("");
+  //   }
+  // };
+
+  console.log(studentGroups.map((ele) => ele));
 
   const [isOpen, SetIsOpen] = useState();
 
@@ -73,14 +107,14 @@ const StudentManagement = () => {
     SetIsOpen(false);
   };
 
-  const handleSubGroup = (groups) => {
-    localStorage.setItem("studentGroups", JSON.stringify(groups));
-  };
+  // const handleSubGroup = (groups) => {
+  //   console.log("cc",groups)
+  //   localStorage.setItem("studentGroups", JSON.stringify(groups));
+  // };
 
   return (
     <>
-      <ExploreNavbar />
-      <div className="w-full p-8">
+      <div className="w-full md:p-8 p-2">
         <div className="w-full flex flex-col justify-center items-center ">
           <div className="flex gap-4 lg:w-[80%] w-full  items-center">
             <div className="w-full border flex justify-between items-center py-2 px-4">
@@ -109,23 +143,28 @@ const StudentManagement = () => {
               <PlusIcon width="34" height="34" />
             </div>
           </div>
-          <div className="flex flex-wrap gap-8 lg:w-[80%] w-full py-10">
+          <div className="flex flex-wrap justify-center items-center gap-8 w-full py-10">
             <Group groupname={"CSE"} />
             <Group groupname={"ECE"} />
             <Group groupname={"EEE"} />
             <Group groupname={"EEE"} />
             {studentGroups?.map((item) => (
-              <Link to="/subgroup">
-                <Group
-                  groupname={item.name}
-                  key={item.id}
-                  onClick={() => handleSubGroup(item)}
-                />
-              </Link>
-            ))}
+  <div key={item.id}>
+    <Link to="/subgroup" className="group-link">
+      <Group
+        groupname={item.name}
+         
+      />
+    </Link>
+   
+  </div>
+))}
+
+
           </div>
         </div>
       </div>
+     
       <CreateGroupModal
         isOpen={isOpen}
         studentGroups={studentGroups}
