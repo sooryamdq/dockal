@@ -3,7 +3,6 @@ import Paragraph from "../Components/Paragraph";
 
 const Home = () => {
   return (
-   
     <div>
       <div className="flex flex-col justify-center items-center w-full h-[70vh]">
         <div className="w-4/5  h-full ">
@@ -39,7 +38,7 @@ const Home = () => {
           <Link className="font-noraml text-sm ">© 2024 copyrights</Link>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 

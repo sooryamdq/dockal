@@ -6,41 +6,36 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addGroup, addSubgroup } from "../Redux/StudentgropSlice";
 
-
-
 const StudentManagement = () => {
-
   const dispatch = useDispatch();
   const [groupName, setGroupName] = useState("");
   const [subgroupName, setSubgroupName] = useState("");
-  const studentGroups = useSelector(state => state.studentGroups);
-  console.log("gp",studentGroups)
-
+  const studentGroups = useSelector((state) => state.studentGroups);
+  console.log("gp", studentGroups);
 
   const handleCreateGroup = () => {
-    if (groupName.trim() !== '') {
+    if (groupName.trim() !== "") {
       const newGroup = {
         id: Date.now(), // Use timestamp as ID
         name: groupName.trim(),
         subgroups: [],
       };
       dispatch(addGroup(newGroup));
-      setGroupName('');
+      setGroupName("");
       handleCreateSubgroup(newGroup.id);
     }
   };
 
   const handleCreateSubgroup = (groupId) => {
-    if (subgroupName.trim() !== '') {
+    if (subgroupName.trim() !== "") {
       const newSubgroup = {
         id: Date.now(), // Use timestamp as ID
         name: subgroupName.trim(),
       };
       dispatch(addSubgroup({ groupId, subgroup: newSubgroup }));
-      setSubgroupName('');
+      setSubgroupName("");
     }
   };
-
 
   // const handleCreateGroup = () => {
   //   // Check if the group name is not empty
@@ -149,22 +144,19 @@ const StudentManagement = () => {
             <Group groupname={"EEE"} />
             <Group groupname={"EEE"} />
             {studentGroups?.map((item) => (
-  <div key={item.id}>
-    <Link to="/subgroup" className="group-link">
-      <Group
-        groupname={item.name}
-         
-      />
-    </Link>
-   
-  </div>
-))}
-
-
+              <div key={item.id}>
+                <Link
+                  to={item.subgroups.length > 0 ? "/subgroup" : "#"}
+                  className="group-link"
+                >
+                  <Group groupname={item.name} />
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-     
+
       <CreateGroupModal
         isOpen={isOpen}
         studentGroups={studentGroups}

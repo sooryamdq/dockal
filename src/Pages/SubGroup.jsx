@@ -5,14 +5,11 @@ import PlusIcon from "../assets/PlusIcon";
 import { useSelector } from "react-redux";
 
 const SubGroup = () => {
-  
- 
-  const studentGroups = useSelector(state => state.studentGroups);
-  console.log("gp",studentGroups)
+  const studentGroups = useSelector((state) => state.studentGroups);
+  console.log("gp", studentGroups);
 
   return (
     <>
-    
       <div className="w-full ">
         <div className="w-full flex flex-col justify-center items-center ">
           <div className="flex gap-4 w-[80%] items-center">
@@ -43,15 +40,13 @@ const SubGroup = () => {
             </div>
           </div>
           <div className="flex flex-wrap gap-8 w-[80%] py-10">
-            {
-              studentGroups.map((item)=>item.subgroups.map((item)=>
-              <Link to="/uploadOrCreate">
-                <Group groupname={item.name} key={item.id}/>
-              </Link>
+            {studentGroups.map((item) =>
+              item.subgroups.map((item) => (
+                <Link to="/uploadOrCreate">
+                  <Group groupname={item.name} key={item.id} />
+                </Link>
               ))
-            }
-              
-            
+            )}
           </div>
         </div>
       </div>

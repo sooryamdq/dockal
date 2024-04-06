@@ -1,9 +1,9 @@
 // modalSlice.js
 
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const modalSlice = createSlice({
-  name: 'modal',
+  name: "modal",
   initialState: {
     isOpen: false,
     modalType: null, // You can use this to identify different types of modals if needed

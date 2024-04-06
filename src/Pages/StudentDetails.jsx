@@ -12,7 +12,6 @@ const StudentDetails = () => {
 
   return (
     <>
-     
       <div className="w-full px-20 py-4">
         <div className="flex items-center gap-4">
           <div className="rounded-full">

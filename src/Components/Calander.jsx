@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; // Import default styles
+import React, { useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css"; // Import default styles
 
 function MyCalendar() {
   const [date, setDate] = useState(new Date());

@@ -1,8 +1,8 @@
 // studentGroupsSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const studentGroupsSlice = createSlice({
-  name: 'studentGroups',
+  name: "studentGroups",
   initialState: [],
   reducers: {
     addGroup: (state, action) => {
@@ -10,7 +10,7 @@ export const studentGroupsSlice = createSlice({
     },
     addSubgroup: (state, action) => {
       const { groupId, subgroup } = action.payload;
-      const group = state.find(group => group.id === groupId);
+      const group = state.find((group) => group.id === groupId);
       if (group) {
         group.subgroups.push(subgroup);
       }

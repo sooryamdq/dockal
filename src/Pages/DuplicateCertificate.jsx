@@ -76,7 +76,6 @@ const DuplicateCertificate = ({ count, setCount, handleChange }) => {
   return (
     <>
       <div className="w-full h-auto" onClick={handleOverlayClick}>
-       
         <div className="flex flex-col lg:items-start items-center gap-5 lg:pl-20 pl-0">
           <p className="font-semibold text-sm py-2 ">
             Certificates /{" "}
@@ -86,7 +85,7 @@ const DuplicateCertificate = ({ count, setCount, handleChange }) => {
           </p>
         </div>
         {certificates.map((ele) => (
-         <DublicateCertificates editOpen={editOpen} handleMenu={handleMenu}/>
+          <DublicateCertificates editOpen={editOpen} handleMenu={handleMenu} />
         ))}
 
         <div className="lg:w-[90%] w-full flex lg:justify-end justify-center py-1 gap-2">

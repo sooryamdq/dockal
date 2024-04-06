@@ -9,7 +9,6 @@ import { LoginAPI } from "../CommonAPI/CommonAPI";
 import { useDispatch } from "react-redux";
 import { login } from "../Redux/Slice";
 
-
 //Yup validation
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -66,20 +65,17 @@ const Login = () => {
 
   //   try{
   //     dispatch(login(formData));
-   
+
   //   }catch (error) {
   //     // Handle errors, e.g., display error message
   //     console.error("Login failed:", error.message);
   //   }
-
-    
 
   //   setSubmitting(false);
   //  };
 
   return (
     <div className="w-full h-96">
-     
       <div className="w-full h-96 flex flex-col justify-center items-center">
         <p className="font-medium font-base py-5 text-[#2F2F2F]">
           Welcome to Certiverse{" "}

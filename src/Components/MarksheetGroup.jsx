@@ -13,16 +13,13 @@ const MarkSheetGroup = () => {
           <MarkSheet />
           <MarkSheet />
           <Link className="cardlink">
-            <NavigationThree />
+            <NavigationThree width="56px" height="56px" />
           </Link>
         </div>
       </div>
-      
-      <div className="w-full lg:h-60 h-auto mb-4 card md:hidden block">
-        <div className="grid grid-cols-2 gap-4 p-5 certificateCard w-auto lg:h-60 h-auto ">
-          <MarkSheet />
-          <MarkSheet />
-          <MarkSheet />
+
+      <div className="w-full h-48  mb-4 certificateCard p-4 card md:hidden block">
+        <div className="flex flex-wrap justify-evenly  w-auto ">
           <MarkSheet />
           <MarkSheet />
           <Link className="cardlink">
@@ -30,7 +27,6 @@ const MarkSheetGroup = () => {
           </Link>
         </div>
       </div>
-      
     </>
   );
 };

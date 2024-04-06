@@ -4,7 +4,6 @@ import PlusIcon from "../assets/PlusIcon";
 const UploadOrCreate = () => {
   return (
     <>
-      
       <div className="w-full flex flex-col justify-center items-center">
         <div className="flex gap-4 w-[80%] items-center">
           <div className="w-full border flex justify-between items-center py-2 px-4">
@@ -42,7 +41,10 @@ const UploadOrCreate = () => {
           </Link>
 
           <p>Or</p>
-          <Link to="/studentpage" className="border-primary border p-3 text-black hover:text-white rounded-md text-xs hover:bg-primary">
+          <Link
+            to="/studentpage"
+            className="border-primary border p-3 text-black hover:text-white rounded-md text-xs hover:bg-primary"
+          >
             Create Group
           </Link>
         </div>
