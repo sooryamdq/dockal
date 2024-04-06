@@ -87,7 +87,7 @@ export const Approvalstatusdata = {
       data: [60, 20, 20],
       backgroundColor: bgColorsDoughnut,
       borderWidth: 1,
-     
+
       tension: 0.2,
     },
   ],
@@ -95,7 +95,7 @@ export const Approvalstatusdata = {
 
 const options = {
   indexAxis: "y",
-  maintainAspectRatio: false, 
+  maintainAspectRatio: false,
   scales: {
     x: {
       grid: {
@@ -112,7 +112,7 @@ const options = {
 
 const optionsX = {
   indexAxis: "x",
-  maintainAspectRatio: false, 
+  maintainAspectRatio: false,
   scales: {
     x: {
       grid: {
@@ -127,28 +127,26 @@ const optionsX = {
   },
 };
 
-
 options.scales.x.barThickness = getBarWidth(); // Set bar thickness dynamically
-
 
 export function CertificateChart() {
   return <Doughnut data={Certificate} />;
 }
 
 export function Approvalstatus() {
-  return <Doughnut data={Approvalstatusdata}  />;
+  return <Doughnut data={Approvalstatusdata} />;
 }
 export function BarChart() {
   return (
     <div className=" h-full ">
-      <Bar data={BarChartdata} options={options}  />
+      <Bar data={BarChartdata} options={options} />
     </div>
   );
 }
 export function BarChartX() {
   return (
     <div className=" h-full ">
-      <Bar data={BarChartdata} options={optionsX}  />
+      <Bar data={BarChartdata} options={optionsX} />
     </div>
   );
 }

@@ -1,11 +1,26 @@
 import DocumentIcon from "../assets/DocumentIcon";
+import DownArrow from "../assets/DownArrow";
+import GalleryIcon from "../assets/GalleryIcon";
+import HeroIcon from "../assets/HeroIcon";
+import Menubar from "../assets/Menubar";
+import MobileIcon from "../assets/MobileIcon";
+import PinIcon from "../assets/PinIcon";
+import SendIcon from "../assets/SendIcon";
+import VoiceIcon from "../assets/VoiceIcon";
+import student from "../assets/student.png";
 
-const ChatScreenMobile = ({currentChat,showUserInfo,messages,handleUserInfo,handleAllChatsClick}) => {
+const ChatScreenMobile = ({
+  currentChat,
+  showUserInfo,
+  messages,
+  handleUserInfo,
+  handleAllChatsClick,
+}) => {
   return (
     <div className="md:hidden">
       <div className="px-4 py-2 flex flex-col">
         {/* Chat header */}
-        <div className="border-b pb-4 mb-4 ">
+        <div className="border-b pb-4 mb-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <img
@@ -293,19 +308,21 @@ const ChatScreenMobile = ({currentChat,showUserInfo,messages,handleUserInfo,hand
         </div>
 
         {/* Chat input */}
-        <div className="flex items-center justify-between px-2 py-2 w-[95%] cursor-pointer border-t absolute bottom-0 z-50 bg-white">
-          <div className="flex items-center gap-3">
-            <GalleryIcon className="h-6 w-6 text-gray-500 cursor-pointer" />
-            <HeroIcon className="h-6 w-6 text-gray-500 cursor-pointer" />
-            <VoiceIcon className="h-6 w-6 text-gray-500 cursor-pointer" />
-          </div>
-          <input
-            type="text"
-            placeholder="Enter Texte here"
-            className="outline-none"
-          />
-          <div className="border-l pl-3">
-            <SendIcon className="h-6 w-6 text-primary cursor-pointer" />
+        <div className={`${currentChat ? "block" : "hidden"}`}>
+          <div className="flex items-center justify-between px-2 py-2 w-[95%] cursor-pointer border-t absolute bottom-0 z-50 bg-white">
+            <div className="flex items-center gap-3">
+              <GalleryIcon className="h-6 w-6 text-gray-500 cursor-pointer" />
+              <HeroIcon className="h-6 w-6 text-gray-500 cursor-pointer" />
+              <VoiceIcon className="h-6 w-6 text-gray-500 cursor-pointer" />
+            </div>
+            <input
+              type="text"
+              placeholder="Enter Texte here"
+              className="outline-none"
+            />
+            <div className="border-l pl-3">
+              <SendIcon className="h-6 w-6 text-primary cursor-pointer" />
+            </div>
           </div>
         </div>
       </div>

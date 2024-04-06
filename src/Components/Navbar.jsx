@@ -13,7 +13,6 @@ const Navbar = () => {
           </p>
         </Link>
         <div className="flex items-center gap-3">
-          
           <Link
             to="/login"
             className="bg-primary lg:text-base text-sm font-normal text-white lg:p-2.5 p-1.5 rounded"

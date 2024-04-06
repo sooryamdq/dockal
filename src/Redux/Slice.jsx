@@ -1,28 +1,27 @@
 // slices/authSlice.js
 
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import postData, { LoginAPI } from '../CommonAPI/CommonAPI';
-
-
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import postData, { LoginAPI } from "../CommonAPI/CommonAPI";
 
 // Async thunk action creator
-export const login = createAsyncThunk('auth/login', async (formData, { rejectWithValue }) => {
- 
-  try {
-    const response = await postData(LoginAPI, formData);
+export const login = createAsyncThunk(
+  "auth/login",
+  async (formData, { rejectWithValue }) => {
+    try {
+      const response = await postData(LoginAPI, formData);
 
-    if (response.data && response.data.error) {
-      return rejectWithValue(response.data.message);
-    } else {
-      localStorage.setItem("userData", JSON.stringify(response.data));
-     
-      return response.data;
+      if (response.data && response.data.error) {
+        return rejectWithValue(response.data.message);
+      } else {
+        localStorage.setItem("userData", JSON.stringify(response.data));
+
+        return response.data;
+      }
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
-  } catch (error) {
-    return rejectWithValue(error.message);
   }
-});
+);
 
 const initialState = {
   userData: null,
@@ -31,7 +30,7 @@ const initialState = {
 };
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

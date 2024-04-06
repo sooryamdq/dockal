@@ -1,4 +1,3 @@
-import ExploreNavbar from "../Components/ExploreNavbar";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useEffect, useState } from "react";
 import WelcomeUser from "../Components/WelcomeUser";
@@ -20,7 +19,6 @@ const DashboardPage = () => {
 
   return (
     <>
-      <ExploreNavbar />
       <WelcomeUser userData={userData} />
       <div className="flex flex-col lg:flex-row items-center justify-center mt-10 gap-5 ">
         <ChartData />

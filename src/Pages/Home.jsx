@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
-import Navbar from "../Components/Navbar";
 import Paragraph from "../Components/Paragraph";
 
 const Home = () => {
   return (
-    <div className="w-full h-screen">
-      <Navbar />
-
+    <div>
       <div className="flex flex-col justify-center items-center w-full h-[70vh]">
-        <div className="w-4/5  h-[70vh] bg-gradient-to-r from-rgba(0,0,0,0.1) via-rgba(0,0,0,0.4) to-rgba(0,0,0,0.1)">
-          <div className="bg-image xs:w-4/5 w-full h-full  text-white rounded-md p-5 flex flex-col justify-between items-start items-center">
+        <div className="w-4/5  h-full ">
+          <div className="bg-image bg-gradient-to-r from-rgba(0,0,0,0.8) via-rgba(0,0,0,0.4) to-rgba(0,0,0,0.1) xs:w-4/5 w-full h-full  text-white rounded-md p-5 flex flex-col justify-between items-start ">
             <div>
               <Paragraph
                 text="Empower your students with digital certificates and marksheets"

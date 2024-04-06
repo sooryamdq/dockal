@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import ExploreNavbar from "../Components/ExploreNavbar";
 import EditIcon from "../assets/EditIcon";
 import NavigationThree from "../assets/NavigationThree";
 import MarkSheetImage from "../assets/Marksheet";
@@ -13,10 +12,8 @@ import GroupMarkSheet from "../Components/GroupMarkSheet";
 const MarkSheet = () => {
   return (
     <>
-    
-      <ExploreNavbar />
-      <div className="bg-gradient-to-b from-white to-[#1CAAA3] h-auto w-full px-8 pb-4">
-        <div className="flex flex-col lg:items-start items-center gap-5 py-4">
+      <div className="bg-gradient-to-b from-white to-[#1CAAA3] h-auto w-full lg:px-8 px-2 pb-4">
+        <div className="flex flex-col items-start gap-5 py-4">
           <Link to="/credential" className="font-semibold text-sm py-2 ">
             Certificates /{" "}
             <Link to="/marksheets" className="font-normal text-sm">
@@ -24,10 +21,10 @@ const MarkSheet = () => {
             </Link>
           </Link>
         </div>
-        <TemplateMarkSheet/>
-        <RecentelySharedMarkSheet/>
-        <SavedMarkSheet/>
-        <GroupMarkSheet/>
+        <TemplateMarkSheet />
+        <RecentelySharedMarkSheet />
+        <SavedMarkSheet />
+        <GroupMarkSheet />
       </div>
     </>
   );

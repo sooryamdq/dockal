@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ExploreNavbar from "../Components/ExploreNavbar";
 import Menubar from "../assets/Menubar";
 import MuteIcon from "../assets/MuteIcon";
 import PinIcon from "../assets/PinIcon";
@@ -30,7 +29,11 @@ const MessageScreen = () => {
     { id: 3, text: "How are you?", sender: "partner" },
     { id: 1, text: "Hello!", sender: "user" },
     { id: 2, text: "Hi there!", sender: "partner" },
-    { id: 3, text: "How are you?DSFDSFVSDFDVFSDFVDFSGSDGfdgadfgfdgfgfdgfdgdfgfdgdfgdfgdfgfgdfgzdfgzdfgHow are you?DSFDSFVSDFDVFSDFVDFSGSDGfdgadfgfdgfgfdgfdgdfgfdgdfgdfgdfgfgdfgzdfgzdfg", sender: "partner" },
+    {
+      id: 3,
+      text: "How are you?DSFDSFVSDFDVFSDFVDFSGSDGfdgadfgfdgfgfdgfdgdfgfdgdfgdfgdfgfgdfgzdfgzdfgHow are you?DSFDSFVSDFDVFSDFVDFSGSDGfdgadfgfdgfgfdgfdgdfgfdgdfgdfgdfgfgdfgzdfgzdfg",
+      sender: "partner",
+    },
   ]);
 
   const chats = [
@@ -137,7 +140,7 @@ const MessageScreen = () => {
 
   const [currentChat, setCurrentChat] = useState(false);
   const [showUserInfo, setShowUserInfo] = useState(false);
-  const  [chartStart,setChartStart] = useState(true)
+  const [chartStart, setChartStart] = useState(true);
 
   const handleAllChatsClick = () => {
     setCurrentChat(messages);
@@ -148,12 +151,11 @@ const MessageScreen = () => {
   };
 
   const handleChartStart = () => {
-    setChartStart(false)
-  }
+    setChartStart(false);
+  };
 
   return (
     <>
-      <ExploreNavbar />
       {/**Desktop View */}
       <div className="w-full px-8 flex">
         <div className="w-[30%]  md:block hidden border">
@@ -187,7 +189,7 @@ const MessageScreen = () => {
             </div>
           </div>
 
-          <div className="overflow-y-auto h-[60vh]" >
+          <div className="overflow-y-auto h-[60vh]">
             {chats.map((chat, index) => (
               <ChatItem
                 key={index}
@@ -201,158 +203,171 @@ const MessageScreen = () => {
               />
             ))}
           </div>
-        </div>{
-          chartStart ? (<ChatStartPage  handleChartStart={handleChartStart}/>) : ( <div className="w-[70%] border md:block hidden ">
-          <div className="w-full lg:h-[15vh] md:h-[8vh] p-2 py-4 border-b border">
-            <div className="flex items-center gap-2">
-              <img src={student} alt="student" width="50px" height="50px" />
-              <div className="flex flex-col gap-1">
-                <p className="font-medium text-xs">Reena</p>
-                <p className="font-medium text-xs text-[#7C7C7C]">Active Now</p>
-              </div>
-            </div>
-          </div>
-          <div className="w-full flex">
-            <div className="w-[70%] h-[60vh] border overflow-y-auto">
-              <div className="flex justify-center items-center py-2  ">
-                <p className="bg-[#80CBC9] text-white px-2 py-1 text-center text-xs rounded-sm">
-                  Today
-                </p>
-              </div>
-              <div>
-                {/* Messages */}
-                <div className="flex-1 overflow-y-auto p-4">
-                  {messages.map((message) => (
-                    <div
-                      key={message.id}
-                      className={`flex  ${
-                        message.sender === "user"
-                          ? "justify-end"
-                          : "justify-start"
-                      }  mb-2`}
-                    >
-                      <div
-                        className={`text-xs p-2 rounded-sm ${
-                          message.sender === "user" ? "mr-2" : "ml-2"
-                        }`}
-                      >
-                        <div class="max-w-xs">
-                          <div class="p-4 rounded-lg  bg-[#CBCBCB]">
-                            Good morning, Professor! I hope you're doing well. I
-                            wanted to follow up on the certificates for the
-                            seminar we attended last month.
-                          </div>
-                          {message.sender === "partner" && (
-                            <div className="px-4 flex gap-2 py-2 items-center">
-                              <img
-                                src={student}
-                                alt="student"
-                                width="28px"
-                                height="28px"
-                              />
-                              <span className="text-xs font-medium text-[#8F8F8F]">
-                                10:00
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+        </div>
+        {chartStart ? (
+          <ChatStartPage handleChartStart={handleChartStart} />
+        ) : (
+          <div className="w-[70%] border md:block hidden ">
+            <div className="w-full lg:h-[15vh] md:h-[8vh] p-2 py-4 border-b border">
+              <div className="flex items-center gap-2">
+                <img src={student} alt="student" width="50px" height="50px" />
+                <div className="flex flex-col gap-1">
+                  <p className="font-medium text-xs">Reena</p>
+                  <p className="font-medium text-xs text-[#7C7C7C]">
+                    Active Now
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="w-[30%]  border">
-              <div className="flex flex-col py-1 items-center border">
-                <img src={student} alt="student" className="w-20 h-20" />
-                <p className="text-sm font-medium">Mrunal</p>
-                <p className="text-xs font-medium text-[#7C7C7C]">Student</p>
-              </div>
-              <div className="border py-2">
-                <div className="flex justify-between px-2 py-1">
-                  <p className="font-semibold text-[#7C7C7C] text-xs text-wrap">
-                    INFORMATION
-                  </p>
-                  <p>
-                    <DownArrow />
+            <div className="w-full flex">
+              <div className="w-[70%] h-[60vh] border overflow-y-auto">
+                <div className="flex justify-center items-center py-2  ">
+                  <p className="bg-[#80CBC9] text-white px-2 py-1 text-center text-xs rounded-sm">
+                    Today
                   </p>
                 </div>
                 <div>
-                  <div className="flex gap-1  items-center flex-wrap px-2 py-1">
-                    <MobileIcon />
-                    <p className="text-xs text-[#7C7C7C] text-wrap">+91 9876543210</p>
-                  </div>
-                  <div className="flex flex-wrap gap-1 items-center px-2 py-1">
-                    <MessageIcon />
-                    <p className="text-xs text-[#7C7C7C] text-wrap">
-                      Mrunal.cse@gmail.com
-                    </p>
+                  {/* Messages */}
+                  <div className="flex-1 overflow-y-auto p-4">
+                    {messages.map((message) => (
+                      <div
+                        key={message.id}
+                        className={`flex  ${
+                          message.sender === "user"
+                            ? "justify-end"
+                            : "justify-start"
+                        }  mb-2`}
+                      >
+                        <div
+                          className={`text-xs p-2 rounded-sm ${
+                            message.sender === "user" ? "mr-2" : "ml-2"
+                          }`}
+                        >
+                          <div class="max-w-xs">
+                            <div class="p-4 rounded-lg  bg-[#CBCBCB]">
+                              Good morning, Professor! I hope you're doing well.
+                              I wanted to follow up on the certificates for the
+                              seminar we attended last month.
+                            </div>
+                            {message.sender === "partner" && (
+                              <div className="px-4 flex gap-2 py-2 items-center">
+                                <img
+                                  src={student}
+                                  alt="student"
+                                  width="28px"
+                                  height="28px"
+                                />
+                                <span className="text-xs font-medium text-[#8F8F8F]">
+                                  10:00
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-              <div className="w-full lg:h-[13vh] md:h-[30vh] overflow-y-auto">
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
-                <CertificateList/>
+              <div className="w-[30%]  border">
+                <div className="flex flex-col py-1 items-center border">
+                  <img src={student} alt="student" className="w-20 h-20" />
+                  <p className="text-sm font-medium">Mrunal</p>
+                  <p className="text-xs font-medium text-[#7C7C7C]">Student</p>
+                </div>
+                <div className="border py-2">
+                  <div className="flex justify-between px-2 py-1">
+                    <p className="font-semibold text-[#7C7C7C] text-xs text-wrap">
+                      INFORMATION
+                    </p>
+                    <p>
+                      <DownArrow />
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex gap-1  items-center flex-wrap px-2 py-1">
+                      <MobileIcon />
+                      <p className="text-xs text-[#7C7C7C] text-wrap">
+                        +91 9876543210
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-1 items-center px-2 py-1">
+                      <MessageIcon />
+                      <p className="text-xs text-[#7C7C7C] text-wrap">
+                        Mrunal.cse@gmail.com
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full lg:h-[13vh] md:h-[30vh] overflow-y-auto">
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                  <CertificateList />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-around gap-3 px-2 py-1 cursor-pointer z-50 bg-white">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.5 3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3 5V19C3 20.1 3.9 21 5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V8.5L15.5 3Z"
+                  stroke="#7C7C7C"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M14 3V7C14 7.53043 14.2107 8.03914 14.5858 8.41421C14.9609 8.78929 15.4696 9 16 9H20M10 16C10 16 10.8 17 12 17C13.3 17 14 16 14 16"
+                  stroke="#7C7C7C"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <input
+                type="text"
+                placeholder="Type a message..."
+                className="w-[70%] py-1 outline-none bg-white"
+              />
+              <GalleryIcon />
+              <HeroIcon />
+              <VoiceIcon />
+              <div className="border-l">
+                <SendIcon />
               </div>
             </div>
           </div>
-
-          <div className="flex items-center justify-around gap-3 px-2 py-1 cursor-pointer z-50 bg-white">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.5 3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3 5V19C3 20.1 3.9 21 5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V8.5L15.5 3Z"
-                stroke="#7C7C7C"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M14 3V7C14 7.53043 14.2107 8.03914 14.5858 8.41421C14.9609 8.78929 15.4696 9 16 9H20M10 16C10 16 10.8 17 12 17C13.3 17 14 16 14 16"
-                stroke="#7C7C7C"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-
-            <input
-              type="text"
-              placeholder="Type a message..."
-              className="w-[70%] py-1 outline-none bg-white"
-            />
-            <GalleryIcon />
-            <HeroIcon />
-            <VoiceIcon />
-            <div className="border-l">
-              <SendIcon />
-            </div>
-          </div>
-        </div>)
-        }
-       
+        )}
       </div>
 
       {/* Mobile view */}
-      {
-        chartStart ? (<chartStart handleChartStart={handleChartStart}/>) :( <ChatScreenMobile handleAllChatsClick={handleAllChatsClick} handleUserInfo={handleUserInfo} messages={messages} currentChat={currentChat} showUserInfo={showUserInfo}/>)
-      }
-     
+      {chartStart ? (
+        <chartStart handleChartStart={handleChartStart} />
+      ) : (
+        <ChatScreenMobile
+          handleAllChatsClick={handleAllChatsClick}
+          handleUserInfo={handleUserInfo}
+          messages={messages}
+          currentChat={currentChat}
+          showUserInfo={showUserInfo}
+        />
+      )}
     </>
   );
 };

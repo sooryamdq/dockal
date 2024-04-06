@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import ExploreNavbar from "../Components/ExploreNavbar";
 import QRCode from "qrcode.react";
 import DeleteIcon from "../assets/DeleteIcon";
 import Menubar from "../assets/Menubar";
@@ -8,7 +7,6 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import CustomModal from "../Components/Modal";
 import ShareModal from "../Components/ShareModal";
-import PlusIcon from "../assets/PlusIcon";
 import EditCertificates from "../Components/EditCertificates";
 
 Modal.setAppElement("#root");
@@ -86,14 +84,13 @@ const EditCertificate = ({ count, handleChange, setCount }) => {
     setAddgroup(false);
   };
 
-  const closeGroup = ()=>{
-    setGroupName(false)
-  }
+  const closeGroup = () => {
+    setGroupName(false);
+  };
 
   return (
     <>
       <div className="w-full h-auto" onClick={handleOverlayClick}>
-        <ExploreNavbar />
         <div className="flex flex-col lg:items-start items-center gap-5 lg:pl-20 pl-0">
           <p className="font-semibold text-sm py-2 ">
             Certificates /{" "}
@@ -102,7 +99,15 @@ const EditCertificate = ({ count, handleChange, setCount }) => {
             </Link>
           </p>
         </div>
-       <EditCertificates editOpen={editOpen} handleAddGroup={handleAddGroup} closeGroup={closeGroup} handleMenu={handleMenu} groupname={groupname} addgroup={addgroup}  handleGroupName={handleGroupName}/>
+        <EditCertificates
+          editOpen={editOpen}
+          handleAddGroup={handleAddGroup}
+          closeGroup={closeGroup}
+          handleMenu={handleMenu}
+          groupname={groupname}
+          addgroup={addgroup}
+          handleGroupName={handleGroupName}
+        />
         <div className="lg:w-[90%] w-full flex lg:justify-end justify-center py-1 gap-2">
           <button
             className="bg-primary p-2 text-white rounded-md"

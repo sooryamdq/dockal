@@ -1,4 +1,3 @@
-import Navbar from "../Components/Navbar";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -32,7 +31,6 @@ const SignUpPage = () => {
 
   return (
     <>
-      <Navbar />
       <div className="w-full h-auto">
         <div className="w-full h-auto flex flex-col justify-center items-center">
           <p className="text-center py-2 font-medium text-base text-[#2F2F2F]">

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ExploreNavbar from "../Components/ExploreNavbar";
 import CertificateImage from "../assets/CertificateImage";
 import student from "../assets/student.png";
 import MarkSheetImage from "../assets/Marksheet";
@@ -13,7 +12,6 @@ const StudentDetails = () => {
 
   return (
     <>
-      <ExploreNavbar />
       <div className="w-full px-20 py-4">
         <div className="flex items-center gap-4">
           <div className="rounded-full">
