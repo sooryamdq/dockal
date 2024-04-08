@@ -3,6 +3,7 @@ import DownArrow from "../assets/DownArrow";
 import GalleryIcon from "../assets/GalleryIcon";
 import HeroIcon from "../assets/HeroIcon";
 import Menubar from "../assets/Menubar";
+import MessageIcon from "../assets/MessageIcon";
 import MobileIcon from "../assets/MobileIcon";
 import PinIcon from "../assets/PinIcon";
 import SendIcon from "../assets/SendIcon";
@@ -21,8 +22,8 @@ const ChatScreenMobile = ({
       <div className="px-4 py-2 flex flex-col">
         {/* Chat header */}
         <div className="border-b pb-4 mb-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2">
+          <div className="flex justify-around items-center ">
+            {/* <div className="flex items-center gap-2">
               <img
                 src={student}
                 alt="student"
@@ -34,26 +35,15 @@ const ChatScreenMobile = ({
                 <p className="font-semibold text-sm">Reena</p>
                 <p className="text-xs text-gray-500">Active Now</p>
               </div>
-            </div>
-            <Menubar />
+            </div> */}
+            <p className="font-semibold text-xs text-gray-500 cursor-pointer">All chats</p>
+            <p className="font-semibold text-xs text-primary cursor-pointer">Requests</p>
+            <Menubar  />
           </div>
-          <div className="flex justify-between items-center mt-4">
-            <p className="font-semibold text-xs text-gray-500">All chats</p>
-            <div className="flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
+          <div className="flex justify-between items-center mt-4 w-full">
+            
+            <div className="flex items-center gap-2 w-full">
+             
               <input
                 type="text"
                 className="bg-gray-100 rounded-full w-full py-1 px-4 outline-none text-sm"

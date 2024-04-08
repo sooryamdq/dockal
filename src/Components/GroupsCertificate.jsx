@@ -8,17 +8,16 @@ const GroupsCertificate = () => {
       <div className="flex flex-col items-start  gap-5 py-4">
         <p className="font-semibold text-sm text-left">Groups</p>
       </div>
-      <div className="w-full lg:h-60 h-auto card md:block hidden">
+      <div className="w-full lg:h-60 h-auto mb-4 card md:block hidden">
         <div
-          style={{ scrollbarWidth: "none" }}
-          className="flex flex-wrap justify-evenly lg:p-8 p-6 overflow-y-auto items-center lg:gap-2 gap-8 certificateCard rounded-md w-auto lg:h-60 h-auto relative"
+          className="flex flex-wrap justify-evenly lg:p-8 p-10 items-center lg:gap-2 gap-8  certificateCard rounded-md w-auto lg:h-60 h-auto "
         >
-          <Group groupname={"Degree Certificates"} />
-          <Group groupname={"Diploma Certificates"} />
-          <Group groupname={"Course Certificates"} />
+         <Group groupname={"ECE"}/>
+         <Group groupname={"MECH"}/>
+         <Group groupname={"EEE"}/>
         </div>
         <Link className="cardlink">
-          <NavigationThree width="56px" height="56px" />
+          <NavigationThree />
         </Link>
       </div>
       <div className="w-full h-48 p-8 h-auto card certificateCard block md:hidden">
@@ -27,7 +26,7 @@ const GroupsCertificate = () => {
           <Group groupname={"Course Certificates"} />
         </div>
         <Link className="cardlink">
-          <NavigationThree width="24px" height="24px" />
+          <NavigationThree/>
         </Link>
       </div>
     </>

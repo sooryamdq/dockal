@@ -1,13 +1,13 @@
-import Navbar from "../Components/Navbar";
+
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Await, Link, useNavigate } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import postData from "../CommonAPI/CommonAPI";
 import { LoginAPI } from "../CommonAPI/CommonAPI";
-import { useDispatch } from "react-redux";
-import { login } from "../Redux/Slice";
+
+
 
 //Yup validation
 const validationSchema = Yup.object().shape({
@@ -30,7 +30,7 @@ const handleError = (message) => {
 const Login = () => {
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
+
 
   //handle submit function
 
@@ -57,22 +57,7 @@ const Login = () => {
       setSubmitting(false);
     }
   };
-  //  const handleSubmit = async (values, { setSubmitting }) => {
-  //    const formData = new FormData();
-  //    Object.entries(values).forEach(([key, value]) => {
-  //      formData.append(key, value);
-  //   });
-
-  //   try{
-  //     dispatch(login(formData));
-
-  //   }catch (error) {
-  //     // Handle errors, e.g., display error message
-  //     console.error("Login failed:", error.message);
-  //   }
-
-  //   setSubmitting(false);
-  //  };
+  
 
   return (
     <div className="w-full h-96">
@@ -136,9 +121,9 @@ const Login = () => {
                     Remember me
                   </p>
                 </label>
-                <p className="font-normal text-sm text-[#2F2F2F]">
+                <Link to="/forgotpassword" className="font-normal text-sm text-[#2F2F2F]">
                   Forgot Password ?
-                </p>
+                </Link>
               </div>
               <div className="my-3">
                 <p className="font-normal text-sm text-[#2F2F2F]">

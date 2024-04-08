@@ -5,7 +5,7 @@ const ChatStartPage = ({ handleChartStart }) => {
   console.log(handleChartStart);
   return (
     <div
-      className="lg:w-[70%] md:w-[70%] w-[100%] h-[80vh] bg-primary relative"
+      className="lg:w-[70%] md:w-[70%] w-[100%] h-[80vh] bg-primary relative lg:block hidden"
       onClick={() => handleChartStart()}
     >
       <div className="absolute lg:-bottom-8 bottom-14   lg:w-[500px] lg:h-[500px]">

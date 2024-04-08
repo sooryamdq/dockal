@@ -112,12 +112,12 @@ const SignUpPage = () => {
                     name="userRole"
                     className="block border border-[#929292]  md:w-96 w-80  p-2 my-2 rounded-md"
                   >
-                    <option value="" style={{ color: "#2F2F2F" }}>
+                    <option value="" >
                       Select a role
                     </option>
-                    <option value="student">Student</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="admin">Admin</option>
+                    <option value="student" className="hover:bg-primary" >Student</option>
+                    <option value="teacher" className="hover:bg-primary">Teacher</option>
+                    <option value="admin" className="hover:bg-primary">Admin</option>
                   </Field>
                   <ErrorMessage
                     name="userRole"

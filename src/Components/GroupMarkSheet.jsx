@@ -11,8 +11,8 @@ const GroupMarkSheet = () => {
       </div>
       <div className="w-full lg:h-60 h-auto card md:block hidden ">
         <div
-          style={{ scrollbarWidth: "none" }}
-          className="flex flex-wrap justify-evenly  lg:p-8 p-6 lg:items-center scrollbar-hide overflow-y-auto gap-2 certificateCard rounded-md w-auto lg:h-60 h-auto relative"
+          
+          className="flex flex-wrap justify-evenly  lg:p-8 p-6 lg:items-center  gap-2 certificateCard rounded-md w-auto lg:h-60 h-auto relative"
         >
           <Group groupname={"ECE"} />
           <Group groupname={"MECH"} />
@@ -27,22 +27,14 @@ const GroupMarkSheet = () => {
         </div>
       )} */}
       </div>
-      <div className="w-full h-48 p-8 card block md:hidden background-container certificateCard">
-        <div
-          style={{ scrollbarWidth: "none" }}
-          className="flex gap-3  p-5 background-container  rounded-md relative"
-        >
-          <Group groupname={"ECE"} />
-          <Group groupname={"MECH"} />
+      <div className="w-full h-48 p-8 h-auto card certificateCard block md:hidden">
+        <div className="flex gap-2 rounded-md relative">
+          <Group groupname={"Diploma Certificates"} />
+          <Group groupname={"Course Certificates"} />
         </div>
         <Link className="cardlink">
           <NavigationThree width="24px" height="24px" />
         </Link>
-        {/* {!buttonClicked && ( // Only render the button if it hasn't been clicked
-        <div className="morebtn bg-primary  text-xs font-normal text-white lg:p-2.5 p-1.5 rounded">
-          <button onClick={toggleShowMore}>More...</button>
-        </div>
-      )} */}
       </div>
     </>
   );
