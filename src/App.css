@@ -1,6 +1,9 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 @font-face {
   font-family: 'Poppins';
@@ -227,31 +230,66 @@ input[type="number"] {
   top: -25px;
   left: 117.5px;
 }
-
-@media (min-width: 900px) and (max-width: 1200px) {
+@media (min-width: 900px) and (max-width: 1100px) {
+  
   .card {
     position: relative;
   }
+  
+  .cardlink {
+    position: absolute;
+    top: -10px;
+    right: -30px;
+    
+  }
+  .group {
+    position: relative;
+
+  }
+
+  .groupicon {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translate(-50%, -0px);
+  }
+}
+
+
+@media (min-width: 700px) and (max-width: 900px) {
+ 
 
   .certificateCard {
     border-radius: 5%;
   }
 
+  .card {
+    position: relative;
+  }
+  
   .cardlink {
     position: absolute;
-    top: -6px;
-    right: -30px;
+    top: -15px;
+    right: 0;
+    
+  }
 
+  .group {
+    position: relative;
+
+  }
+
+  .groupicon {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translate(-50%, -0px);
   }
 
 }
 
-.navbaractive {
-  opacity: 0.5;
 
-}
-
-@media (min-width: 320px) and (max-width: 900px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .morebtn {
     position: absolute;
     left: 50%;

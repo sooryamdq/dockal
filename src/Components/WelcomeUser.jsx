@@ -16,17 +16,17 @@ const WelcomeUser = ({ userData }) => {
             <div className="flex justify-center lg:items-start items-center flex-col relative ">
               <p className="text-base font-semibold">Credentials Issued</p>
               <p className="text-3xl font-extrabold">57</p>
-              <div class="flex-grow h-[80%] w-1 bg-white absolute -left-2 lg:block hidden"></div>
+              <div className="flex-grow h-[80%] w-1 bg-white absolute -left-2 lg:block hidden"></div>
             </div>
             <div className="flex justify-center lg:items-start items-center flex-col relative">
               <p className="text-base font-semibold">Pending Credentials</p>
               <p className="text-3xl font-extrabold">12</p>
-              <div class="flex-grow h-[80%] w-1 bg-white absolute -left-2 lg:block hidden"></div>
+              <div className="flex-grow h-[80%] w-1 bg-white absolute -left-2 lg:block hidden"></div>
             </div>
             <div className="flex justify-center lg:items-start items-center flex-col relative">
               <p className="text-base font-semibold">Requests </p>
               <p className="text-3xl font-extrabold">5</p>
-              <div class="flex-grow h-[80%] w-1 bg-white absolute -left-2 lg:block hidden"></div>
+              <div className="flex-grow h-[80%] w-1 bg-white absolute -left-2 lg:block hidden"></div>
             </div>
           </div>
         </div>

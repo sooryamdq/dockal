@@ -85,7 +85,7 @@ const DuplicateCertificate = ({ count, setCount, handleChange }) => {
           </p>
         </div>
         {certificates.map((ele) => (
-          <DublicateCertificates editOpen={editOpen} handleMenu={handleMenu} />
+          <DublicateCertificates editOpen={editOpen} handleMenu={handleMenu} key={ele.id} />
         ))}
 
         <div className="lg:w-[90%] w-full flex lg:justify-end justify-center py-1 gap-2">

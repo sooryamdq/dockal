@@ -5,8 +5,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useLocation,
-  useMatch,
+  useLocation
 } from "react-router-dom";
 import SignUpPage from "./Pages/SignUppage";
 import Login from "./Pages/Login";
@@ -28,10 +27,11 @@ import MessageScreen from "./Pages/MessageScreeen";
 import store from "./Redux/Store";
 import ExploreNavbar from "./Components/ExploreNavbar";
 import NotFoundPage from "./Pages/NotFoundPage";
+import ForgotPassword from "./Components/ForgotPassword";
 
 function App() {
   const [count, setCount] = useState();
-
+ 
   const handleChange = (e) => {
     setCount(e.target.value);
   };
@@ -40,6 +40,7 @@ function App() {
       <Provider store={store}>
         <Router>
           <ExploreNavbar />
+        
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<SignUpPage />} />
@@ -73,7 +74,8 @@ function App() {
             <Route path="/upload" element={<Upload />} />
             <Route path="/studentdetails" element={<StudentDetails />} />
             <Route path="/messagescreen" element={<MessageScreen />} />
-            <Route path="*" component={<NotFoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/forgotpassword" element={<ForgotPassword/>}/>
           </Routes>
         </Router>
 

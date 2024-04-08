@@ -18,8 +18,8 @@ const MarkSheetGroup = () => {
         </div>
       </div>
 
-      <div className="w-full h-48  mb-4 certificateCard p-4 card md:hidden block">
-        <div className="flex flex-wrap justify-evenly  w-auto ">
+      <div className="w-full h-48  mb-4 certificateCard p-8 h-auto card md:hidden block">
+        <div className="flex flex-wrap gap-2 justify-around ">
           <MarkSheet />
           <MarkSheet />
           <Link className="cardlink">
