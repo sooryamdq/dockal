@@ -7,7 +7,7 @@ const WelcomeUser = ({ userData }) => {
             <div className="flex justify-center items-center flex-col pb-4 block">
               <p className="text-4xl font-semibold">Welcome,</p>
               <p className="text-sm font-medium">
-                {userData?.data.firstName}
+                {/* {userData?.data.firstName} */}
                 <span className="border border-white mx-1"></span>
                 <span className="font-light text-xs">Faculty Advisor</span>
               </p>
@@ -37,7 +37,7 @@ const WelcomeUser = ({ userData }) => {
           <div className="bg-gradient-to-r from-teal-800 to-teal-200  p-4 rounded-md">
             <p className="text-sm font-semibold text-white">Welcome,</p>
             <p className="text-sm font-medium text-white">
-              {userData?.data.firstName}
+              {/* {userData?.data.firstName} */}
               <span className="border border-white mx-1"></span>
               <span className="font-light text-xs text-white">
                 Faculty Advisor

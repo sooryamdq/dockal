@@ -1,45 +1,112 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreateGroupModal from "../Components/CreateGroupModal";
 import Group from "../Components/Group";
 import PlusIcon from "../assets/PlusIcon";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addGroup, addSubgroup } from "../Redux/StudentgropSlice";
+import { addGroup, addSubgroup, createGroup, fetchGroups } from "../Redux/StudentgropSlice";
+import  axios  from "axios";
 
 const StudentManagement = () => {
+
+  const [bearerToken, setBearerToken] = useState(null);
+  const [loginUserId, setLoginUserId] = useState(null);
+ // const [userId, setUserId] = useState(null);
+
+  // Use useEffect to set state variables
+  useEffect(() => {
+    // Retrieve userData from local storage
+    const storedUserData = localStorage.getItem("userData");
+    if (storedUserData) {
+      const userData = JSON.parse(storedUserData);
+      // Assuming your token key is "token" in the userData object
+      if (userData) {
+        setBearerToken(userData.data.bearerToken);
+        setLoginUserId(userData.data.userId);
+        //setUserRole(userData.data.userRole); // Assuming userRole is available in userData
+      }
+    }
+  }, []); // Empty dependency array ensures this effect runs only once on component mount
+
+
+//token and userId
+
+
   const dispatch = useDispatch();
   const [groupName, setGroupName] = useState("");
   const [subgroupName, setSubgroupName] = useState("");
   const studentGroups = useSelector((state) => state.studentGroups);
-  console.log("gp", studentGroups);
+ 
+   console.log("ele",studentGroups.studentGroups.data)
 
-  const handleCreateGroup = () => {
-    if (groupName.trim() !== "") {
-      const newGroup = {
-        id: Date.now(), // Use timestamp as ID
-        name: groupName.trim(),
-        subgroups: [],
-      };
-      dispatch(addGroup(newGroup));
-      setGroupName("");
-      handleCreateSubgroup(newGroup.id);
-    }
-  };
 
-  const handleCreateSubgroup = (groupId) => {
-    if (subgroupName.trim() !== "") {
-      const newSubgroup = {
-        id: Date.now(), // Use timestamp as ID
-        name: subgroupName.trim(),
-      };
-      dispatch(addSubgroup({ groupId, subgroup: newSubgroup }));
-      setSubgroupName("");
-    }
-  };
+    
+  // const fetchData = async () => {
+
+  //   console.log(bearerToken,loginUserId)
+  //   try {
+  //     // Create a new FormData object
+  //     const formData = new FormData();
+      
+  //     // Append the loginUserId to the FormData object
+  //     formData.append('loginUserId', loginUserId);
+     
+  
+  //     // Make the POST request with the FormData
+  //     const response = await axios.post(
+  //       "https://mdqualityapps.in/API/dockal/development/get_all_user_roles",
+  //       formData, // Pass the FormData object here
+  //       {
+  //         headers: {
+  //           'Content-Type': 'application/x-www-form-urlencoded', // Set the Content-Type header for form data
+  //           Authorization: `Bearer ${bearerToken}` // Pass bearerToken in the request headers
+  //         }
+  //       }
+  //     );
+  //     console.log("res", response.data);
+  //     // Handle response data as needed
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //     // Redirect to login page if token expires or request fails
+  //   }
+  // };
+  
+  
+ // Fetch data when token and userId change
+ 
+ useEffect(() => {
+  // Fetch groups data if both loginUserId and bearerToken are available
+  if (loginUserId && bearerToken) {
+    dispatch(fetchGroups({ bearerToken, loginUserId }));
+  }
+}, [dispatch, loginUserId, bearerToken]);
 
   
 
-  console.log(studentGroups.map((ele) => ele));
+  const handleCreateGroup = () => {
+    console.log("val",groupName)
+    if (groupName.trim() !== "") {
+      
+      dispatch(createGroup({groupName,loginUserId,bearerToken}));
+      // setGroupName("");
+      // handleCreateSubgroup(newGroup.id);
+    }
+  };
+
+  // const handleCreateSubgroup = (groupId) => {
+  //   if (subgroupName.trim() !== "") {
+  //     const newSubgroup = {
+  //       id: Date.now(), // Use timestamp as ID
+  //       name: subgroupName.trim(),
+  //     };
+  //     dispatch(({ groupId, subgroup: newSubgroup }));
+  //     setSubgroupName("");
+  //   }
+  // };
+
+  
+
+  // console.log(studentGroups.map((ele) => ele));
 
   const [isOpen, SetIsOpen] = useState();
 
@@ -58,6 +125,7 @@ const StudentManagement = () => {
 
   return (
     <>
+    {/* <button onClick={()=>fetchData()}>data</button> */}
       <div className="w-full md:p-8 p-2">
         <div className="w-full flex flex-col justify-center items-center ">
           <div className="flex gap-4 lg:w-[80%] w-full  items-center">
@@ -88,17 +156,15 @@ const StudentManagement = () => {
             </div>
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8 w-full py-10">
-            <Group groupname={"CSE"} />
-            <Group groupname={"ECE"} />
-            <Group groupname={"EEE"} />
-            <Group groupname={"EEE"} />
-            {studentGroups?.map((item) => (
-              <div key={item.id}>
+           
+            {studentGroups?.studentGroups?.data?.map((item) => (
+              <div key={item.departmentId}>
                 <Link
-                  to={item.subgroups.length > 0 ? "/subgroup" : "#"}
+                  // to={item.subgroups.length > 0 ? `/subgroup/${item.subgroups.map((ele) => ele.name).join(',')}`
+                  // : "#"}
                   className="group-link"
                 >
-                  <Group groupname={item.name} />
+                  <Group groupname={item.departmentName} />
                 </Link>
               </div>
             ))}
@@ -111,7 +177,7 @@ const StudentManagement = () => {
         studentGroups={studentGroups}
         subgroupName={subgroupName}
         setSubgroupName={setSubgroupName}
-        handleCreateSubgroup={handleCreateSubgroup}
+        // handleCreateSubgroup={handleCreateSubgroup}
         onRequestClose={handleClose}
         groupName={groupName}
         setGroupName={setGroupName}

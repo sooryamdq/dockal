@@ -168,7 +168,7 @@ const SignUpPage = () => {
                     <Field
                       type="checkbox"
                       name="agreeToTerms"
-                      className="border border-[#929292]  p-2 rounded-md"
+                      className="border border-[#929292]  p-2 rounded-md"           
                     />
                     <p className="font-normal text-sm text-[#2F2F2F]">
                       I agree to the{" "}

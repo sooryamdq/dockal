@@ -49,17 +49,32 @@ const StudentDetails = () => {
           </p>
         </div>
         {activeTab === "tab1" && (
-          <div className="flex flex-wrap gap-10 justify-center">
-            <div className="w-64 h-44 border-2">
+          <div className="flex flex-wrap gap-5 w-full h-auto md:justify-start justify-center">
+            <div className="w-60 h-44 border-2">
               <CertificateImage />
             </div>
-            <div className="w-64 h-44 border-2">
+            <div className="w-60 h-44 border-2">
               <CertificateImage />
             </div>
-            <div className="w-64 h-44 border-2">
+            <div className="w-60 h-44 border-2">
               <CertificateImage />
             </div>
-            <div className="w-64 h-44 border-2">
+            <div className="w-60 h-44 border-2">
+              <CertificateImage />
+            </div>
+            <div className="w-60 h-44 border-2">
+              <CertificateImage />
+            </div>
+            <div className="w-60 h-44 border-2">
+              <CertificateImage />
+            </div>
+            <div className="w-60 h-44 border-2">
+              <CertificateImage />
+            </div>
+            <div className="w-60 h-44 border-2">
+              <CertificateImage />
+            </div>
+            <div className="w-60 h-44 border-2">
               <CertificateImage />
             </div>
             <div className="w-64 h-44 border-2">
@@ -71,7 +86,7 @@ const StudentDetails = () => {
           </div>
         )}
         {activeTab === "tab2" && (
-          <div className="flex gap-10 flex-wrap justify-center">
+          <div className="flex gap-5 flex-wrap md:justify-start justify-center">
             <div className="w-36 h-52">
               <MarkSheetImage />
             </div>

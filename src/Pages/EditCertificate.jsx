@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-import QRCode from "qrcode.react";
-import DeleteIcon from "../assets/DeleteIcon";
-import Menubar from "../assets/Menubar";
 import Modal from "react-modal";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -12,7 +9,7 @@ import EditCertificates from "../Components/EditCertificates";
 Modal.setAppElement("#root");
 
 const EditCertificate = ({ count, handleChange, setCount }) => {
-  console.log("cnt", count);
+ 
 
   const notify = () => {
     toast.success("Successfully saved");
