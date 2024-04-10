@@ -16,7 +16,7 @@ import EditCertificate from "./Pages/EditCertificate";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DuplicateCertificate from "./Pages/DuplicateCertificate";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StudentManagement from "./Pages/StudentManagement";
 import SubGroup from "./Pages/SubGroup";
 import { Provider } from "react-redux";
@@ -28,13 +28,30 @@ import store from "./Redux/Store";
 import ExploreNavbar from "./Components/ExploreNavbar";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ForgotPassword from "./Components/ForgotPassword";
+import axios from 'axios';
+import { LoginAPI } from "./CommonAPI/CommonAPI";
 
 function App() {
   const [count, setCount] = useState();
  
+  
+ 
+
   const handleChange = (e) => {
     setCount(e.target.value);
   };
+
+
+ 
+ 
+
+
+
+  
+
+  
+
+
   return (
     <>
       <Provider store={store}>
@@ -69,7 +86,7 @@ function App() {
               }
             />
             <Route path="/studentpage" element={<StudentManagement />} />
-            <Route path="/subgroup" element={<SubGroup />} />
+            <Route path="/subgroup/:id" element={<SubGroup />} />
             <Route path="/uploadOrCreate" element={<UploadOrCreate />} />
             <Route path="/upload" element={<Upload />} />
             <Route path="/studentdetails" element={<StudentDetails />} />
